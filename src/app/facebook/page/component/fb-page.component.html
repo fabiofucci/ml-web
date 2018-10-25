@@ -1,0 +1,74 @@
+<div *ngIf="loading" class="row">
+  <i class="fas fa-spinner fa-spin" style="font-size:36px;"></i>Caricamento dei dati dalla pagina Facebook
+</div>
+
+<div *ngIf="errorMessage" class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <i class="fas fa-exclamation-triangle"></i>
+          {{errorMessage}}
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        {{errorMessageDetail}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div *ngIf="errorMessage">
+  <i class="fas fa-exclamation-triangle"></i>
+  {{errorMessage}}
+</div>
+-->
+
+<div *ngIf="message">
+  {{message}}
+</div>
+
+<ul *ngIf="googleSearchResponse" class="list-unstyled">
+  <li *ngFor="let sr of googleSearchResponse.items" class="media" style="padding-bottom: 20px;">
+    <img *ngIf="sr.pagemap.cse_thumbnail" class="mr-3" src="{{sr.pagemap.cse_thumbnail[0]?.src}}" width="64">
+    <img *ngIf="sr.pagemap.cse_image && !sr.pagemap.cse_thumbnail" class="mr-3" src="{{sr.pagemap.cse_image[0]?.src}}" height="64">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1"><a href="{{sr.link}}" target="_blank">{{sr.title}}</a></h5>
+      {{sr.snippet}}
+    </div>
+  </li>
+</ul>
+<!--
+<div class="list-group">
+  <a *ngFor="let sr of googleSearchResponse.items" href="{{sr.link}}" target="_blank" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{sr.title}}</h5>
+      <small>{{sr.displayLink}}</small>
+    </div>
+    <p class="mb-1">
+        {{sr.snippet}}
+    </p>
+    <small>Donec id elit non mi porta.</small>
+  </a>
+</div>
+-->
+<div *ngIf="pageData" class="card" style="width: 18rem;">
+  <img class="card-img-top" src="" alt="{{pageData.name}}">
+  <div class="card-body">
+    <h5 class="card-title">{{pageData.name}}</h5>
+    <p class="card-text">
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Link: {{pageData.link}}</li>
+    <li class="list-group-item">ID: {{pageData.id}}</li>
+    <li class="list-group-item">Verification status: {{pageData.verification_status}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{{pageData.link}}" class="card-link" target="_blank">Link</a>
+  </div>
+</div>

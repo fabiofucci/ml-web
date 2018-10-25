@@ -1,0 +1,50 @@
+<div class="container">
+  <div *ngIf="loading" class="row">
+    <i class="fas fa-spinner fa-spin" style="font-size:36px;"></i>Caricamento dei dati dell'artista
+  </div>
+
+  <div *ngIf="artistData" class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Ricerca artista</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{artistData.name}}</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col">
+      <h1>{{artistData.name}}</h1>
+    </div>
+  </div>
+
+  <div *ngIf="artistData" class="row">
+    <div class="col-4">
+      <div  class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{artistData.images[0].url}}" alt="{{artistData.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{artistData.name}}</h5>
+          <p class="card-text">
+            Generi:
+          <ul>
+            <li *ngFor="let genre of artistData.genres">{{genre}}</li>
+          </ul>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Popolarità: {{artistData.popularity}}</li>
+          <li class="list-group-item">Estimatori: {{artistData.followers.total | number}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="{{artistData.external_urls.spotify}}" class="card-link" target="_blank">Spotify</a>
+        </div>
+      </div>
+
+      <!--
+      <img *ngFor="let image of artistData.images" src="{{image.url}}" width="{{image.width}}" height="{{image.height}}">
+      -->
+    </div>
+
+    <div class="col-8">
+      <app-component-fbpage [artistName]="artistData.name"></app-component-fbpage>
+    </div>
+  </div>
+</div>
