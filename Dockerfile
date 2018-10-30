@@ -7,11 +7,12 @@ COPY . /url/local/app/ml-web
 
 WORKDIR /url/local/app/ml-web
 
+RUN npm install
 RUN npm install -g @angular/cli
 
 USER node
 
-RUN ng serve --prod=true --host=${NG_APP_HOST} --port=${NG_APP_PORT}
+RUN ng serve --prod=true --host=$NG_APP_HOST --port=$NG_APP_PORT
 
 # replace this with your application's default port
 EXPOSE 8080
