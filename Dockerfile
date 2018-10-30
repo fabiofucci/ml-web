@@ -4,7 +4,7 @@ FROM node
 RUN npm install -g @angular/cli
 
 # set working directory
-RUN mkdir /url/local/app/ml-web
+RUN mkdir -p /url/local/app/ml-web
 COPY . /url/local/app/ml-web
 
 USER node
