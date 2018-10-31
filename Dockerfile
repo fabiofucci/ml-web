@@ -12,7 +12,7 @@ RUN npm install -g @angular/cli
 
 USER node
 
-RUN ng serve --prod=true --host=$NG_APP_HOST --port=$NG_APP_PORT
-
 # replace this with your application's default port
 EXPOSE 8080
+
+RUN ng serve --prod=true --host=$NG_APP_HOST --port=$NG_APP_PORT
