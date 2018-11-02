@@ -34,13 +34,15 @@ RUN ng build --prod
 ##################
 
 # base image
-FROM nginx
+## FROM nginx
+FROM httpd
 
 # copy artifact build from the 'build environment'
-COPY --from=builder /url/local/app/ml-web/dist /usr/share/nginx/html
+## COPY --from=builder /url/local/app/ml-web/dist /usr/share/nginx/html
+COPY --from=builder /url/local/app/ml-web/dist /usr/local/apache2/htdocs/
 
 # expose port 8080
-EXPOSE 8080
+## EXPOSE 8080
 
 # run nginx
-CMD ["nginx", "-g", "daemon off;"]
+## CMD ["nginx", "-g", "daemon off;"]
