@@ -27,7 +27,7 @@ COPY . /url/local/app/ml-web
 ## SKIPPED
 
 # generate build
-RUN ng build prod
+RUN ng build --prod
 
 ##################
 ### production ###
