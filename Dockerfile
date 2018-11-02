@@ -34,7 +34,7 @@ RUN ng build --prod
 ##################
 
 # base image
-FROM nginx:stable-alpine
+FROM nginx
 
 # copy artifact build from the 'build environment'
 COPY --from=builder /url/local/app/ml-web/dist /usr/share/nginx/html
