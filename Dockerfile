@@ -39,7 +39,7 @@ FROM httpd
 
 # copy artifact build from the 'build environment'
 ## COPY --from=builder /url/local/app/ml-web/dist /usr/share/nginx/html
-COPY --from=builder /url/local/app/ml-web/dist /usr/local/apache2/htdocs/
+COPY --from=builder /url/local/app/ml-web/dist /opt/rh/httpd24/root/var/www/html
 
 # expose port 8080
 ## EXPOSE 8080
