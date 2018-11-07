@@ -4,12 +4,14 @@ echo "---> download di node"
 curl https://nodejs.org/dist/v10.13.0/node-v10.13.0-linux-x64.tar.gz --output node-v10.13.0-linux-x64.tar.gz
 
 echo "---> estrazione di node"
-tar zxvf node-v10.13.0-linux-x64.tar.gz
+tar zxf node-v10.13.0-linux-x64.tar.gz
 
 export PATH=$PATH:$PWD/node-v10.13.0-linux-x64/bin
 
+echo "---> install dei moduli dell'applicazione"
 npm install
 
+echo "---> build dell'applicazione"
 npm run build --prod
 
 echo "rimozione dei file non necessari"
