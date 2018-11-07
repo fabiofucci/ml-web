@@ -1,5 +1,16 @@
 #!/bin/bash
 
+echo "---> esecuzione del root assemble"
+/usr/libexec/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    echo "root assemble completato con successo"
+else
+    echo "root assemble fallito"
+    exit $rc
+fi
+
 echo "---> download di node"
 curl https://nodejs.org/dist/v10.13.0/node-v10.13.0-linux-x64.tar.gz --output node-v10.13.0-linux-x64.tar.gz
 
@@ -21,3 +32,4 @@ find . ! -name 'dist' -type d -exec rm -rf {} +
 mv dist/* ./
 
 echo "---> build e dist completati"
+
