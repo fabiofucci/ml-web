@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "---> download di node"
+curl https://nodejs.org/dist/v10.13.0/node-v10.13.0-linux-x64.tar.gz --output node-v10.13.0-linux-x64.tar.gz
+
+echo "---> estrazione di node"
+tar zxvf node-v10.13.0-linux-x64.tar.gz
+
+export PATH=$PATH:$PWD/node-v10.13.0-linux-x64/bin
+
+npm install
+
+npm run build --prod
+
+echo "rimozione dei file non necessari"
+find . ! -name 'dist/*' -type f -exec rm -f {} +
+find . ! -name 'dist' -type d -exec rm -rf {} +
+
+mv dist/* ./
+
+echo "---> build e dist completati"
