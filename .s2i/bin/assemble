@@ -26,8 +26,8 @@ echo "---> build dell'applicazione"
 npm run build --prod
 
 echo "rimozione dei file non necessari"
-find . ! -name 'dist' -type d -exec rm -rf {} +
-find . -maxdepth 1 -type f -exec rm -f {} +
+# find . ! -name 'dist' -type d -exec rm -rf {} +
+# find . -maxdepth 1 -type f -exec rm -f {} +
 
 mv dist/* ./
 
