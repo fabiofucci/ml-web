@@ -1,3 +1,20 @@
 #!/bin/bash
 echo "Avvio dell'applicazione Music Lovers - un'app per gli amanti della musica!"
+
+# Prepara il file delle variabili di ambiente
+
+echo "VARIABILI DI AMBIENTE:"
+echo "\$ML_ARTIST_DISCOVERY_SEARCH_URL:" $ML_ARTIST_DISCOVERY_SEARCH_URL
+echo "\$ML_ARTIST_DISCOVERY_ARTIST_URL:" $ML_ARTIST_DISCOVERY_ARTIST_URL
+echo "\$ML_ARTIST_FBPAGE_SEARCH_URL:" $ML_ARTIST_FBPAGE_SEARCH_URL
+echo "\$ML_ARTIST_FBPAGE_GOOGLE_SEARCH_URL:" $ML_ARTIST_FBPAGE_GOOGLE_SEARCH_URL
+
+sed -i s/@#ML_ARTIST_DISCOVERY_SEARCH_URL#@/$ML_ARTIST_DISCOVERY_SEARCH_URL/ ./assets/js/env.ts
+sed -i s/@#ML_ARTIST_DISCOVERY_ARTIST_URL#@/$ML_ARTIST_DISCOVERY_ARTIST_URL/ ./assets/js/env.ts
+sed -i s/@#ML_ARTIST_FBPAGE_SEARCH_URL#@/$ML_ARTIST_FBPAGE_SEARCH_URL/ ./assets/js/env.ts
+sed -i s/@#ML_ARTIST_FBPAGE_GOOGLE_SEARCH_URL#@/$ML_ARTIST_FBPAGE_GOOGLE_SEARCH_URL/ ./assets/js/env.ts
+
+echo "FILE DELLE VARIABILI DI AMBIENTE:"
+cat ./assets/js/env.ts
+
 exec /usr/libexec/s2i/run
