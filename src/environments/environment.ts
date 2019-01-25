@@ -4,10 +4,11 @@
 
 export const environment = {
   production: false,
-  ML_ARTIST_DISCOVERY_SEARCH_URL: 'http://127.0.0.1:5000/api/search_artists',
-  ML_ARTIST_DISCOVERY_ARTIST_URL: 'http://127.0.0.1:5000/api/artist',
-  ML_ARTIST_FBPAGE_SEARCH_URL: 'http://127.0.0.1:8080/api/fb_search_page',
-  ML_ARTIST_FBPAGE_GOOGLE_SEARCH_URL: 'http://127.0.0.1:8080/api/google_search_page',
+  // ML_ARTIST_DISCOVERY_SEARCH_URL: 'http://127.0.0.1:5000/api/search_artists',
+  ML_ARTIST_DISCOVERY_SEARCH_URL: 'http://ml-artist-discovery-ml-artist-discovery.192.168.99.100.nip.io/api/search_artists',
+  ML_ARTIST_DISCOVERY_ARTIST_URL: 'http://ml-artist-discovery-ml-artist-discovery.192.168.99.100.nip.io/api/artist',
+  ML_ARTIST_FBPAGE_SEARCH_URL: 'http://ml-artist-facebook-ml-artist-facebook.192.168.99.100.nip.io/api/fb_search_page',
+  ML_ARTIST_FBPAGE_GOOGLE_SEARCH_URL: 'http://ml-artist-facebook-ml-artist-facebook.192.168.99.100.nip.io/api/google_search_page',
 };
 
 /*

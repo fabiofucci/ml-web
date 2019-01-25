@@ -22,12 +22,17 @@ RUN npm install -g @angular/cli
 
 # add app
 COPY . /url/local/app/ml-web
+COPY ./bin/setEnv.sh /url/local/app/ml-web/bin/
+
+# Imposta i valori recuperati dalle variabili d'ambiente
+RUN sh /url/local/app/ml-web/bin/setEnv.sh
 
 # run tests
 ## SKIPPED
 
 # generate build
 RUN ng build --prod
+
 
 ##################
 ### production ###
@@ -47,3 +52,4 @@ COPY --from=builder /url/local/app/ml-web/dist/ml-web /usr/local/apache2/htdocs
 
 # run nginx
 ## CMD ["nginx", "-g", "daemon off;"]
+
