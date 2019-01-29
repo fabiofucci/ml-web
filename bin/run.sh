@@ -16,4 +16,4 @@ sed -i s^@#ML_ARTIST_FBPAGE_GOOGLE_SEARCH_URL#@^$ML_ARTIST_FBPAGE_GOOGLE_SEARCH_
 echo "FILE DELLE VARIABILI DI AMBIENTE:"
 cat /usr/local/apache2/htdocs/assets/js/env.js
 
-sh httpd-foreground
+httpd-foreground
